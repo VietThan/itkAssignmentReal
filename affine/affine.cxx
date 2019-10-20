@@ -52,7 +52,7 @@ public:
 
   void Execute (itk::Object *caller, const itk::EventObject &event)
   {
-    RegistrationPointerType registrationWrapper = dynamic_cast < RegistrationPointerType > ( caller ) ;
+    RegistrationPointerType registrationWrapper = dynamic_cast<RegistrationPointerType> ( caller ) ;
     OptimizerPointerType optimizer = dynamic_cast < OptimizerPointerType > ( registrationWrapper->GetModifiableOptimizer() ) ;
 
     std::cout << "RegObserver" << optimizer->GetCurrentIteration() << std::endl ;
@@ -64,7 +64,6 @@ public:
        optimizer->SetMaximumStepLength ( 0.125 / 2 ) ; 
     else
        optimizer->SetMaximumStepLength ( 0.25 / 2 ) ; 
-
   }
 
   void Execute (const itk::Object *caller, const itk::EventObject &event)

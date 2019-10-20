@@ -24,4 +24,6 @@
 
 ## Command line
 
-./average 21 ../../data/KKI2009-{01..21}-MPRAGE.nii average.nii
+./average 21 iteration_1_deformed_image_{01..21}.nii average_iteration_1.nii
+./affine 20 KKI2009-01-MPRAGE.nii KKI2009-{02..21}-MPRAGE.nii
+./deformed average_affine.nii affine_KKI2009-02-MPRAGE.nii image_02.nii 100
