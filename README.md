@@ -17,7 +17,7 @@
 
 ## Process
 
-In a way, this might be the most hack-and-slash method. I did not rely on slurm, partly because the number of jobs from fellow students would have crowded out my jobs, and thankfully my programs weren't so intensive that they couldn't just be run straight from the command line. (I had a slow weekend anyway). Here are the process for each question.
+Highly recommend reading before begin. In a way, this might be the most hack-and-slash method. I did not rely on slurm, partly because the number of jobs from fellow students would have crowded out my jobs, and thankfully my programs weren't so intensive that they couldn't just be run straight from the command line. (I had a slow weekend anyway). Here are the process for each question.
 
 ### Question 1:
 
@@ -69,6 +69,34 @@ The iterations will have names being iteration_iterationNum_deformed_outputName
     ./average 21 iteration_1_deformed_image_{01..21}.nii average_iteration_1.nii
     ```
 2. Use ITKSNAP to check if iterations optimize over time. See picture on top to see optimization in action.
+
+## Scripts
+
+1. Average:
+   ```bash
+    ./average [n] [imgs] [output]
+    ```
+   - n       - the number of images
+   - imgs    - all the images (plurality)
+   - output  - the name of the output file
+    
+2. Affine registration
+   ```bash
+   ./affine [n] [fixed] [moving]
+   ```
+   - n       - the number of moving images
+   - fixed   - the fixed image name
+   - moving  - the names of the moving images (plurality)
+   
+   
+3. Deformed registration (Demons)
+   ```bash
+   ./deformed [fixed] [moving] [output] [iterNum]
+   ```
+   - fixed   - the fixed image/template
+   - moving  - the moving image
+   - output  - part of the name of the output, will form part of the iterations naming
+   - iterNum - the number of iterations in registration
 
 ## Command line
 
