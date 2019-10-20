@@ -24,4 +24,4 @@
 
 ## Command line
 
-./average 21 ../../data/KKI2009-{01..21}-MPRAGE.nii
+./average 21 ../../data/KKI2009-{01..21}-MPRAGE.nii average.nii

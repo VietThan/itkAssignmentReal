@@ -11,7 +11,6 @@ constexpr unsigned int Dim = 3;
 int main(int argc, char * argv []){
     std::cout << "Starting average filter\n";
     std::cout << "Assume first argument is number of images\n";
-    std::cout << "Output is average.nii\n";
 
     int imagesCount = atoi(argv[1]);
     
@@ -22,15 +21,18 @@ int main(int argc, char * argv []){
 
     // array of file names
     std::string filenameArr[imagesCount];
-
+    std::string OutputFilename;
     // Reading in filenames
-    if (argc == imagesCount + 2){
+    if (argc == imagesCount + 3){
         for (int i = 0; i < imagesCount; ++i){
             filenameArr[i] = argv[i+2];
             std::cout << "Read in file " << filenameArr[i] << "\n";
         }        
+        OutputFilename = argv[argc-1];
+        std::cout << "Output is " << OutputFilename << "\n";
     } else {
-        std::cout << "Incorrect number of images\n";
+        std::cout << "NumberOfImages inputImages outputName\n";
+        std::cout << "or incorrect number of arguments\n";
         return EXIT_FAILURE;
     }
 
@@ -68,7 +70,7 @@ int main(int argc, char * argv []){
     // setting up writer
     using WriterType = itk::ImageFileWriter < ImageType > ;
     WriterType::Pointer writer = WriterType::New() ;
-    writer->SetFileName ( "average.nii" ) ;
+    writer->SetFileName ( OutputFilename ) ;
     writer->SetInput ( scaleFilter->GetOutput() ) ;
 
     //Write to file
