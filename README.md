@@ -1,5 +1,24 @@
 # itkAssignment-VietThan
 
+
+## Command line
+
+1. Average
+   ```bash
+    ./average 21 iteration_1_deformed_image_{01..21}.nii average_iteration_1.nii
+    ```
+2. Affine registration
+   ```bash
+   ./affine 20 KKI2009-01-MPRAGE.nii KKI2009-{02..21}-MPRAGE.nii
+   ```
+3. Deformed registration
+   ```bash
+   ./deformed average_affine.nii affine_KKI2009-02-MPRAGE.nii image_02.nii 100
+   ```
+      
+## File numbers changed
+After deleting the duplicates, I've renamed the files to make it easier.
+
 - 33 -> 01
 - 34 -> 02
 - 20 -> 03
@@ -21,9 +40,3 @@
 - 24 -> 19
 - 37 -> 20
 - 17 -> 21 
-
-## Command line
-
-./average 21 iteration_1_deformed_image_{01..21}.nii average_iteration_1.nii
-./affine 20 KKI2009-01-MPRAGE.nii KKI2009-{02..21}-MPRAGE.nii
-./deformed average_affine.nii affine_KKI2009-02-MPRAGE.nii image_02.nii 100
