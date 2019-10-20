@@ -59,11 +59,14 @@ int main(int argc, char * argv []){
     
     sum->Update();
 
+    double scale = (float) 1 / imagesCount;
+    std::cout << "Multiply by: " << scale << std::endl;
+
     // set up scale filter
     using ScaleFilterType = itk::ShiftScaleImageFilter< ImageType, ImageType >;
     ScaleFilterType::Pointer scaleFilter = ScaleFilterType::New();
     scaleFilter->SetInput( sum->GetOutput() );
-    scaleFilter->SetScale( imagesCount );
+    scaleFilter->SetScale( scale );
     scaleFilter->Update();
 
 
