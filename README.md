@@ -31,9 +31,9 @@ Highly recommend reading before begin. In a way, this might be the most hack-and
 2. Copy the executable to the data folder
 3. Runs a variation of the Average script:
    ```bash
-   ./average 21 KKI2009-{01..21}-MPRAGE.nii average_original.nii
+   ./average 21 KKI2009-{01..21}-MPRAGE.nii average.nii
    ```
-4. We now have the originals-average template at "average_original.nii"
+4. We now have the originals-average template at "average.nii"
 
 ### Question 3:
 
